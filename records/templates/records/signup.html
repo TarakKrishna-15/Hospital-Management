@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup | Digital Health System</title>
+    <style>
+        body { font-family: Arial; background: #f4f7ff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        form { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; width: 300px; }
+        h2 { text-align: center; color: #007bff; }
+        input { width: 100%; margin: 8px 0; padding: 10px; border-radius: 5px; border: 1px solid #ddd; }
+        button { width: 100%; background: #007bff; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        a { text-decoration: none; color: #007bff; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Sign Up</h2>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Create Account</button>
+        <p style="text-align:center;margin-top:10px;">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </form>
+</body>
+</html>

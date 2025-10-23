@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Digital Health System</title>
+    <style>
+        body { font-family: Arial; background-color: #eef2ff; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; width: 500px; margin: auto; }
+        h2 { color: #007bff; text-align: center; }
+        img { display: block; margin: 20px auto; width: 150px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome {{ patient.user.username }}</h2>
+        <p><b>Age:</b> {{ patient.age }}</p>
+        <p><b>Gender:</b> {{ patient.gender }}</p>
+        <p><b>Condition:</b> {{ patient.medical_condition }}</p>
+        {% if patient.qr_code %}
+        <p style="text-align:center;">Your QR Code:</p>
+        <img src="{{ patient.qr_code.url }}" alt="QR Code">
+        {% endif %}
+        <p style="text-align:center;"><a href="{% url 'logout' %}"><button>Logout</button></a></p>
+    </div>
+</body>
+</html>
